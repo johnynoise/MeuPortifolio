@@ -227,20 +227,20 @@ section .title::after{
     border-radius: 6px;
 }
 /*  sessão serviços */
-.projects, .teams{
+.services, .teams{
     background: #111;
     color: #fff;
 }
-.projects .title::before,
+.services .title::before,
 .teams .title::before{
     background: #fff;
 }
-.projects .title::after,
+.services .title::after,
 .teams .title::after{
     background: #111;
     content: "Que oferecemos";
 }
-.projects .serv-content .card{
+.services .serv-content .card{
     width: calc(33% - 25px);
     background: #222;
     text-align: center;
@@ -249,23 +249,23 @@ section .title::after{
     cursor: pointer;
     transition: all 0.3s ease;
 }
-.projects .serv-content .card:hover{
+.services .serv-content .card:hover{
     background: #00804b;
 }
 .services .serv-content .card .box{
     transition: all 0.3s ease;
 }
-.projects .serv-content .card:hover .box{
+.services .serv-content .card:hover .box{
     transform: scale(1.05);
 }
-.projects .serv-content .card ion-icon{
+.services .serv-content .card ion-icon{
     font-size: 70px;
     color: #00804b;
 }
-.projects .serv-content .card:hover ion-icon{
+.services .serv-content .card:hover ion-icon{
     color: #fff;
 }
-.projects .serv-content .card .text{
+.services .serv-content .card .text{
     font-size: 25px;
     font-weight: 500;
     margin: 10px 0 7px 0;
