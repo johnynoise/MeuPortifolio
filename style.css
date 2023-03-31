@@ -186,6 +186,7 @@ section .title::after{
 
 .about .title::after{
     content: "Quem sou eu";
+    background: #fff;
 }
 .about .about-content .left{
     width: 45%;
@@ -206,7 +207,7 @@ section .title::after{
 }
 .about .about-content .right a{
     display: inline-block;
-    background: #000000;
+    background: #e78c04;
     color: #fff;
     font-size: 20px;
     font-weight: 500;
