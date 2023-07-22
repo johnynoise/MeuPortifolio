@@ -13,6 +13,8 @@ html{
     padding: 0 80px;
     margin: auto;
 }
+
+
 /*  navbar   inicio*/
 .navbar{
     position: fixed;
@@ -169,11 +171,11 @@ section .title::after{
     padding: 5px;
     transform: translateX(-50%);
 }
-.about, .services, .skills, .teams, .contact, footer{
+.sobre, .projetos, .skills, .certificacao, .contact, footer{
     font-family: 'Roboto', sans-serif;
 }
-.about .about-content,
-.services .serv-content,
+.sobre .sobre-content,
+.projetos .serv-content,
 .skills .skills-content,
 .contact .contact-content{
     display: flex;
@@ -184,28 +186,28 @@ section .title::after{
 
 /*  sessão sobre  */
 
-.about .title::after{
+.sobre .title::after{
     content: "Quem sou eu";
     background: #fff;
 }
-.about .about-content .left{
+.sobre .sobre-content .left{
     width: 45%;
 }
-.about .about-content .right{
+.sobre .sobre-content .right{
     width: 55%;
 }
-.about .about-content .right .text{
+.sobre .sobre-content .right .text{
     font-size: 25px;
     font-weight: 500;
     margin-bottom: 10px;
 }
-.about .about-content .right .text span{
+.sobre .sobre-content .right .text span{
     color: #e78c04;
 }
-.about .about-content .right p{
+.sobre .sobre-content .right p{
     text-align: justify;
 }
-.about .about-content .right a{
+.sobre .sobre-content .right a{
     display: inline-block;
     background: #e78c04;
     color: #fff;
@@ -217,31 +219,31 @@ section .title::after{
     border: 2px solid #e78c04;
     transition: all 0.3s ease;
 }
-.about .about-content .right a:hover{
+.sobre .sobre-content .right a:hover{
     color: #e78c04;
     background: none;
 }
-.about .about-content .left img{
+.sobre .sobre-content .left img{
     width: 400px;
     height: 400px;
     object-fit: cover;
     border-radius: 6px;
 }
 /*  sessão serviços */
-.services, .teams{
+.projetos, .certificacao{
     background: #111;
     color: #fff;
 }
-.services .title::before,
-.teams .title::before{
+.projetos .title::before,
+.certificacao .title::before{
     background: #fff;
 }
-.services .title::after,
-.teams .title::after{
+.projetos .title::after,
+.certificacao .title::after{
     background: #111;
     content: "Que oferecemos";
 }
-.services .serv-content .card{
+.projetos .serv-content .card{
     width: calc(33% - 25px);
     background: #222;
     text-align: center;
@@ -250,23 +252,23 @@ section .title::after{
     cursor: pointer;
     transition: all 0.3s ease;
 }
-.services .serv-content .card:hover{
+.projetos .serv-content .card:hover{
     background: #00804b;
 }
-.services .serv-content .card .box{
+.projetos .serv-content .card .box{
     transition: all 0.3s ease;
 }
-.services .serv-content .card:hover .box{
+.projetos .serv-content .card:hover .box{
     transform: scale(1.05);
 }
-.services .serv-content .card ion-icon{
+.projetos .serv-content .card ion-icon{
     font-size: 70px;
     color: #00804b;
 }
-.services .serv-content .card:hover ion-icon{
+.projetos .serv-content .card:hover ion-icon{
     color: #fff;
 }
-.services .serv-content .card .text{
+.projetos .serv-content .card .text{
     font-size: 25px;
     font-weight: 500;
     margin: 10px 0 7px 0;
@@ -344,20 +346,20 @@ section .title::after{
     width: 42%;
 }
 /*  sessão equipe  */
-.teams .title::after{
+.certificacao .title::after{
     content: "Habilidades";
 }
-.teams .carousel .card{
+.certificacao .carousel .card{
     background: #222;
     border-radius: 6px;
     padding: 25px 35px;
     text-align: center;
     transition: all 0.3s ease;
 }
-.teams .carousel .card:hover{
+.certificacao .carousel .card:hover{
     background: #e78c04;
 }
-.teams .carousel .card img{
+.certificacao .carousel .card img{
     width: 150px;
     height: 150px;
     object-fit: cover;
@@ -365,20 +367,20 @@ section .title::after{
     border: 5px solid #e78c04;
     transition: all 0.3s ease;
 }
-.teams .carousel .card:hover img{
+.certificacao .carousel .card:hover img{
     border-color: #fff;
 }
-.teams .carousel .card .box{
+.certificacao .carousel .card .box{
     display: flex;
     flex-direction: column;
     align-items: center;
     justify-content: center;
     transition: all 0.3s ease;
 }
-.teams .carousel .card:hover .box{
+.certificacao .carousel .card:hover .box{
     transform: scale(1.05);
 }
-.teams .carousel .card .text{
+.certificacao .carousel .card .text{
     font-size: 25px;
     font-weight: 500;
     margin: 10px 0 7px 0;
@@ -520,7 +522,7 @@ footer span a:hover{
     }
 }
 @media (max-width: 1104px){
-    .about .about-content .left img{
+    .sobre .sobre-content .left img{
         width: 350px;
         height: 350px;
     }
@@ -571,18 +573,18 @@ footer span a:hover{
         font-size: 23px;
         padding: 10px 30px;
     }
-    .about .about-content .column{
+    .sobre .sobre-content .column{
         width: 50%;
     }
-    .about .about-content .left{
+    .sobre .sobre-content .left{
         display: flex;
         justify-content: center;
         margin: 0 auto 60px;
     }
-    .about .about-content .right{
+    .sobre .sobre-content .right{
         flex: 100%;
     }
-    .services .serv-content .card {
+    .projetos .serv-content .card {
         width: calc(50% - 10px);
         margin-bottom: 20px;
     }
@@ -605,7 +607,7 @@ footer span a:hover{
     .home .home-content a{
         font-size: 20px;
     }
-    .services .serv-content .card {
+    .projetos .serv-content .card {
         width:100%;
     }
 }
