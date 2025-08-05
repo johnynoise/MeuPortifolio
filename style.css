@@ -14,7 +14,6 @@ html{
     margin: auto;
 }
 
-
 /*  navbar   inicio*/
 .navbar{
     position: fixed;
@@ -63,15 +62,16 @@ html{
     color: #fff;
 }
 /*  Home   inicio  */
-.home{
+.home {
     display: flex;
-    background: url(https://wallpaperaccess.com/full/2875430.png) no-repeat;
+    background: url("image/background.jpg") no-repeat center center;
     background-size: cover;
     height: 100vh;
     color: #fff;
     min-height: 500px;
     font-family: 'Ubuntu', sans-serif;
 }
+
 .home .max-width{
     margin: auto 0 auto 40px;
 }
@@ -85,25 +85,31 @@ html{
 }
 .home .home-content .text-3{
     font-size: 40px;
-    margin: 5px 0;
+    margin: 5px 0 10px 0;
 }
 .home .home-content .text-3 span{
     color:#e78c04 ;
     font-weight: 500;
 }
-.home .home-content a{
-    display: inline-block;
-    background: #e78c04;
-    color: #fff;
-    font-size: 25px;
-    padding: 12px 36px;
-    margin-top: 20px;
-    border-radius: 6px;
-    border: 2px solid #e78c04;
+
+/* Botão Contratar-me ajustado */
+.home .home-content a {
+  display: inline-block;
+  margin-top: 20px;
+  padding: 12px 28px;
+  font-size: 16px;
+  font-weight: 600;
+  background: #e78c04;
+  color: white;
+  border-radius: 30px;
+  text-decoration: none;
+  box-shadow: 0 4px 12px rgba(231, 140, 4, 0.5);
+  transition: background-color 0.3s ease;
+  position: relative;
+  z-index: 1;
 }
-.home .home-content a:hover{
-    color: #e78c04;
-    background: none;
+.home .home-content a:hover {
+  background-color: #d77800;
 }
 
 /*  Menu  Mobile  */
@@ -229,6 +235,7 @@ section .title::after{
     object-fit: cover;
     border-radius: 6px;
 }
+
 /*  sessão serviços */
 .projetos, .certificacao{
     background: #111;
@@ -243,52 +250,77 @@ section .title::after{
     background: #111;
     content: "Que oferecemos";
 }
-.projetos .serv-content .card{
-    width: calc(33% - 25px);
-    background: #222;
-    text-align: center;
-    border-radius: 6px;
-    padding: 20px 25px;
-    cursor: pointer;
-    transition: all 0.3s ease;
+
+/* Cards Projetos e Certificações ajustados */
+.serv-content, .carousel.owl-carousel {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 20px;
+  justify-content: center;
 }
-.projetos .serv-content .card:hover{
-    background: #00804b;
+
+.serv-content .card, .carousel.owl-carousel .card {
+  width: 280px;
+  box-shadow: 0 4px 8px rgba(0,0,0,0.1);
+  border-radius: 8px;
+  overflow: hidden;
+  background: #222;
+  color: #fff;
+  text-align: center;
+  padding-bottom: 10px;
+  transition: transform 0.3s ease;
 }
-.projetos .serv-content .card .box{
-    transition: all 0.3s ease;
+.serv-content .card:hover, .carousel.owl-carousel .card:hover {
+  background: #00804b;
+  transform: translateY(-5px);
 }
-.projetos .serv-content .card:hover .box{
-    transform: scale(1.05);
+.serv-content .card img, .carousel.owl-carousel .card img {
+  width: 100%;
+  height: 160px;
+  object-fit: cover;
+  display: block;
+  border-radius: 6px 6px 0 0;
 }
-.projetos .serv-content .card ion-icon{
-    font-size: 70px;
-    color: #00804b;
+.serv-content .card .text, .carousel.owl-carousel .card .text {
+  font-size: 22px;
+  font-weight: 500;
+  margin: 10px 0 7px 0;
 }
-.projetos .serv-content .card:hover ion-icon{
-    color: #fff;
-}
-.projetos .serv-content .card .text{
-    font-size: 25px;
-    font-weight: 500;
-    margin: 10px 0 7px 0;
-}
-/*  sessão especialidades  */
-.skills .title::after{
+
+/* Seção Habilidades */
+.skills .title::after {
     content: "Que possuo";
 }
-.skills .skills-content .column{
-    width: calc(50% - 30px);
+
+.skills .skills-content {
+    display: flex;
+    gap: 60px;
+    align-items: flex-start;
+    flex-wrap: wrap;
 }
-.skills .skills-content .left .text{
+
+.skills .skills-content .column {
+    width: calc(50% - 30px);
+    display: flex;
+    flex-direction: column;
+    justify-content: flex-start;
+}
+
+.skills .skills-content .left {
+    text-align: justify;
+}
+
+.skills .skills-content .left .text {
     font-size: 25px;
     font-weight: 500;
     margin-bottom: 10px;
 }
-.skills .skills-content .left p{
+
+.skills .skills-content .left p {
     text-align: justify;
 }
-.skills .skills-content .left a{
+
+.skills .skills-content .left a {
     display: inline-block;
     background: #e78c04;
     color: #fff;
@@ -300,51 +332,65 @@ section .title::after{
     border: 2px solid #e78c04;
     transition: all 0.3s ease;
 }
-.skills .skills-content .left a:hover{
+
+.skills .skills-content .left a:hover {
     color: #e78c04;
     background: none;
 }
-.skills .skills-content .right .bars{
-    margin-bottom: 15px;
-}
-.skills .skills-content .right .info{
+
+.skills .skills-content .right {
     display: flex;
-    align-items: center;
-    justify-content: space-between;
+    flex-direction: column;
+    gap: 15px;
 }
-.skills .skills-content .right span{
+
+.skills .skills-content .right .bars {
+    width: 100%;
+}
+
+.skills .skills-content .right .info {
+    display: flex;
+    justify-content: space-between;
+    margin-bottom: 5px;
     font-weight: 500;
     font-size: 18px;
 }
-.skills .skills-content .right .line{
+
+.skills .skills-content .right .line {
     width: 100%;
-    height: 5px;
+    height: 8px;
     background: #ccc;
+    border-radius: 8px;
     position: relative;
+    overflow: hidden;
 }
-.skills .skills-content .right .line::before{
+
+.skills .skills-content .right .line::before {
     content: "";
     position: absolute;
     height: 100%;
     top: 0;
     left: 0;
     background: #e78c04;
+    border-radius: 8px 0 0 8px;
 }
-.skills .skills-content .right .html::before{
-    width: 93%;
-}
-.skills .skills-content .right .css::before{
-    width: 85%;
-}
-.skills .skills-content .right .js::before{
-    width: 87%;
-}
-.skills .skills-content .right .php::before{
-    width: 47%;
-}
-.skills .skills-content .right .mysql::before{
-    width: 42%;
-}
+
+/* Ajuste das larguras individuais */
+.skills .skills-content .right .html::before { width: 93%; }
+.skills .skills-content .right .css::before { width: 90%; }
+.skills .skills-content .right .js::before { width: 85%; }      
+.skills .skills-content .right .react::before { width: 80%; }
+.skills .skills-content .right .node::before { width: 75%; }
+.skills .skills-content .right .python::before { width: 70%; }
+.skills .skills-content .right .docker::before { width: 60%; }
+.skills .skills-content .right .aws::before { width: 55%; }
+.skills .skills-content .right .git::before { width: 50%; }
+.skills .skills-content .right .mongodb::before { width: 65%; }
+.skills .skills-content .right .mysql::before { width: 60%; }
+
+
+
+
 /*  sessão equipe  */
 .certificacao .title::after{
     content: "Habilidades";
@@ -352,7 +398,7 @@ section .title::after{
 .certificacao .carousel .card{
     background: #222;
     border-radius: 6px;
-    padding: 25px 35px;
+    padding: 25px 35px 20px 35px;
     text-align: center;
     transition: all 0.3s ease;
 }
@@ -405,6 +451,7 @@ section .title::after{
 .owl-dot:hover{
     background: #e78c04!important;
 }
+
 /*  sessão Contato  */
 .contact .title::after{
     content: "Fale comigo";
@@ -513,7 +560,6 @@ footer span a{
 footer span a:hover{
     text-decoration: underline;
 }
-
 
 /*  responsivo  */
 @media (max-width: 1300px){
