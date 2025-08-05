@@ -377,13 +377,13 @@ section .title::after{
 
 /* Ajuste das larguras individuais */
 .skills .skills-content .right .html::before { width: 93%; }
-.skills .skills-content .right .css::before { width: 90%; }
-.skills .skills-content .right .js::before { width: 85%; }      
+.skills .skills-content .right .css::before { width: 85%; }
+.skills .skills-content .right .js::before { width: 90%; }      
 .skills .skills-content .right .react::before { width: 80%; }
-.skills .skills-content .right .node::before { width: 75%; }
-.skills .skills-content .right .python::before { width: 70%; }
+.skills .skills-content .right .node::before { width: 70%; }
+.skills .skills-content .right .python::before { width: 90%; }
 .skills .skills-content .right .docker::before { width: 60%; }
-.skills .skills-content .right .aws::before { width: 55%; }
+.skills .skills-content .right .aws::before { width: 90%; }
 .skills .skills-content .right .git::before { width: 50%; }
 .skills .skills-content .right .mongodb::before { width: 65%; }
 .skills .skills-content .right .mysql::before { width: 60%; }
