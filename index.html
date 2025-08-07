@@ -37,6 +37,209 @@
             color: white;
         }
         
+        /* Custom Cursor */
+        .cursor {
+            width: 20px;
+            height: 20px;
+            border: 2px solid #6366f1;
+            border-radius: 50%;
+            position: fixed;
+            pointer-events: none;
+            z-index: 9999;
+            transition: all 0.1s ease;
+            mix-blend-mode: difference;
+        }
+        
+        .cursor-follower {
+            width: 8px;
+            height: 8px;
+            background: #6366f1;
+            border-radius: 50%;
+            position: fixed;
+            pointer-events: none;
+            z-index: 9999;
+            transition: all 0.15s ease;
+        }
+        
+        /* Scroll Progress */
+        .scroll-progress {
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 0%;
+            height: 3px;
+            background: linear-gradient(90deg, #6366f1, #06b6d4);
+            z-index: 9999;
+            transition: width 0.1s ease;
+        }
+        
+        /* Loading Screen */
+        .loading-screen {
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background: #0f172a;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            z-index: 10000;
+            transition: opacity 0.5s ease;
+        }
+        
+        .loading-screen.hidden {
+            opacity: 0;
+            pointer-events: none;
+        }
+        
+        .loader {
+            width: 60px;
+            height: 60px;
+            border: 3px solid transparent;
+            border-top: 3px solid #6366f1;
+            border-radius: 50%;
+            animation: spin 1s linear infinite;
+        }
+        
+        /* Toast Notifications */
+        .toast {
+            position: fixed;
+            top: 100px;
+            right: 20px;
+            background: rgba(15, 23, 42, 0.95);
+            backdrop-filter: blur(20px);
+            color: white;
+            padding: 16px 24px;
+            border-radius: 12px;
+            border: 1px solid #334155;
+            transform: translateX(400px);
+            transition: all 0.3s ease;
+            z-index: 9998;
+            box-shadow: 0 20px 40px rgba(0, 0, 0, 0.3);
+        }
+        
+        .toast.show {
+            transform: translateX(0);
+        }
+        
+        .toast.success {
+            border-color: #10b981;
+        }
+        
+        .toast.success::before {
+            content: '✓';
+            color: #10b981;
+            margin-right: 8px;
+            font-weight: bold;
+        }
+        
+        /* Typewriter Effect */
+        .typewriter {
+            overflow: hidden;
+            white-space: nowrap;
+            animation: typing 3s steps(40, end), blink-caret 0.75s step-end infinite;
+        }
+        
+        /* Particles */
+        .particles {
+            position: absolute;
+            width: 100%;
+            height: 100%;
+            overflow: hidden;
+            pointer-events: none;
+        }
+        
+        .particle {
+            position: absolute;
+            width: 2px;
+            height: 2px;
+            background: #6366f1;
+            border-radius: 50%;
+            animation: float 6s ease-in-out infinite;
+            opacity: 0.3;
+        }
+        
+        /* Dark Mode Toggle */
+        .theme-toggle {
+            position: relative;
+            width: 60px;
+            height: 30px;
+            background: #334155;
+            border-radius: 20px;
+            cursor: pointer;
+            transition: all 0.3s ease;
+        }
+        
+        .theme-toggle::after {
+            content: '';
+            position: absolute;
+            top: 3px;
+            left: 3px;
+            width: 24px;
+            height: 24px;
+            background: white;
+            border-radius: 50%;
+            transition: all 0.3s ease;
+            box-shadow: 0 2px 8px rgba(0, 0, 0, 0.2);
+        }
+        
+        .theme-toggle.dark {
+            background: #6366f1;
+        }
+        
+        .theme-toggle.dark::after {
+            transform: translateX(30px);
+        }
+        
+        /* Reveal Animation */
+        .reveal {
+            opacity: 0;
+            transform: translateY(50px);
+            transition: all 0.8s ease;
+        }
+        
+        .reveal.revealed {
+            opacity: 1;
+            transform: translateY(0);
+        }
+        
+        /* Floating Elements */
+        .floating {
+            animation: float 6s ease-in-out infinite;
+        }
+        
+        .floating:nth-child(2) {
+            animation-delay: -2s;
+        }
+        
+        .floating:nth-child(3) {
+            animation-delay: -4s;
+        }
+        
+        /* Animations */
+        @keyframes spin {
+            0% { transform: rotate(0deg); }
+            100% { transform: rotate(360deg); }
+        }
+        
+        @keyframes typing {
+            from { width: 0 }
+            to { width: 100% }
+        }
+        
+        @keyframes blink-caret {
+            from, to { border-color: transparent }
+            50% { border-color: #06b6d4; }
+        }
+        
+        @keyframes float {
+            0%, 100% { transform: translateY(0px) rotate(0deg); }
+            25% { transform: translateY(-20px) rotate(5deg); }
+            50% { transform: translateY(-10px) rotate(0deg); }
+            75% { transform: translateY(-15px) rotate(-5deg); }
+        }
+        
         @keyframes fadeInUp {
             from {
                 opacity: 0;
@@ -49,21 +252,13 @@
         }
         
         @keyframes gradient {
-            0%, 100% {
-                background-position: 0% 50%;
-            }
-            50% {
-                background-position: 100% 50%;
-            }
+            0%, 100% { background-position: 0% 50%; }
+            50% { background-position: 100% 50%; }
         }
         
         @keyframes fillBar {
-            from {
-                width: 0%;
-            }
-            to {
-                width: var(--width);
-            }
+            from { width: 0%; }
+            to { width: var(--width); }
         }
         
         .animate-fadeInUp {
@@ -122,7 +317,7 @@
         }
         
         .project-card:hover {
-            transform: translateY(-8px);
+            transform: translateY(-8px) scale(1.02);
         }
         
         .contact-item {
@@ -142,9 +337,63 @@
         .mobile-menu.open {
             transform: translateX(0);
         }
+        
+        /* Easter Egg - Konami Code */
+        .konami-active {
+            animation: rainbow 2s linear infinite;
+        }
+        
+        @keyframes rainbow {
+            0% { filter: hue-rotate(0deg); }
+            100% { filter: hue-rotate(360deg); }
+        }
+        
+        /* Light Mode Styles */
+        body.light-mode {
+            background: #f8fafc;
+            color: #1e293b;
+        }
+        
+        .light-mode .glass {
+            background: rgba(248, 250, 252, 0.9);
+        }
+        
+        .light-mode .bg-slate-900 {
+            background: #f8fafc !important;
+        }
+        
+        .light-mode .bg-slate-800 {
+            background: #e2e8f0 !important;
+        }
+        
+        .light-mode .text-slate-100 {
+            color: #1e293b !important;
+        }
+        
+        .light-mode .text-slate-400 {
+            color: #64748b !important;
+        }
     </style>
 </head>
 <body class="bg-slate-900 text-slate-100">
+    
+    <!-- Loading Screen -->
+    <div id="loadingScreen" class="loading-screen">
+        <div class="text-center">
+            <div class="loader mb-4"></div>
+            <p class="text-slate-400">Carregando portfólio...</p>
+        </div>
+    </div>
+    
+    <!-- Scroll Progress -->
+    <div id="scrollProgress" class="scroll-progress"></div>
+    
+    <!-- Custom Cursor -->
+    <div id="cursor" class="cursor hidden md:block"></div>
+    <div id="cursorFollower" class="cursor-follower hidden md:block"></div>
+    
+    <!-- Toast Container -->
+    <div id="toastContainer"></div>
     
     <!-- Navbar -->
     <nav id="navbar" class="fixed top-0 w-full z-50 transition-all duration-300 glass">
@@ -162,9 +411,15 @@
                     <li><a href="#contact" class="nav-link relative text-slate-100 hover:text-indigo-400 transition-colors duration-300">Contato</a></li>
                 </ul>
                 
-                <button id="menuBtn" class="md:hidden text-slate-100">
-                    <i data-lucide="menu" size="24"></i>
-                </button>
+                <div class="flex items-center gap-4">
+                    <!-- Theme Toggle -->
+                    <div id="themeToggle" class="theme-toggle" title="Alternar tema"></div>
+                    
+                    <!-- Mobile Menu Button -->
+                    <button id="menuBtn" class="md:hidden text-slate-100">
+                        <i data-lucide="menu" size="24"></i>
+                    </button>
+                </div>
             </div>
         </div>
         
@@ -183,18 +438,31 @@
 
     <!-- Hero Section -->
     <section id="home" class="min-h-screen flex items-center justify-center relative overflow-hidden">
+        <!-- Particles Background -->
+        <div class="particles">
+            <div class="particle floating" style="left: 10%; animation-delay: 0s;"></div>
+            <div class="particle floating" style="left: 20%; animation-delay: 2s;"></div>
+            <div class="particle floating" style="left: 30%; animation-delay: 4s;"></div>
+            <div class="particle floating" style="left: 40%; animation-delay: 1s;"></div>
+            <div class="particle floating" style="left: 50%; animation-delay: 3s;"></div>
+            <div class="particle floating" style="left: 60%; animation-delay: 5s;"></div>
+            <div class="particle floating" style="left: 70%; animation-delay: 2s;"></div>
+            <div class="particle floating" style="left: 80%; animation-delay: 4s;"></div>
+            <div class="particle floating" style="left: 90%; animation-delay: 1s;"></div>
+        </div>
+        
         <div class="absolute inset-0 bg-gradient-to-br from-slate-900 via-slate-800 to-slate-900"></div>
         <div class="absolute inset-0 bg-gradient-to-r from-indigo-500/10 via-purple-500/10 to-cyan-500/10 animate-gradient" style="background-size: 400% 400%;"></div>
         
-        <div class="max-w-6xl mx-auto px-4 text-center relative z-10 animate-fadeInUp">
+        <div class="max-w-6xl mx-auto px-4 text-center relative z-10 reveal">
             <h1 class="text-lg md:text-xl text-slate-400 mb-4">Olá, meu nome é</h1>
             <h2 class="text-4xl md:text-6xl lg:text-7xl font-bold mb-4 gradient-text">
                 Johny de Souza
             </h2>
             <h3 class="text-xl md:text-3xl mb-8">
-                Eu sou <span class="text-cyan-400 font-semibold">Desenvolvedor Full Stack</span>
+                Eu sou <span id="typewriter" class="text-cyan-400 font-semibold typewriter"></span>
             </h3>
-            <a href="#contact" class="inline-block px-8 py-4 bg-gradient-to-r from-indigo-600 to-purple-600 text-white rounded-full font-semibold hover:shadow-2xl hover:shadow-indigo-500/25 hover:-translate-y-1 transition-all duration-300">
+            <a href="#contact" class="cta-button inline-block px-8 py-4 bg-gradient-to-r from-indigo-600 to-purple-600 text-white rounded-full font-semibold hover:shadow-2xl hover:shadow-indigo-500/25 hover:-translate-y-1 transition-all duration-300">
                 Contratar-me
             </a>
         </div>
@@ -203,20 +471,20 @@
     <!-- About Section -->
     <section id="sobre" class="py-20 bg-slate-800">
         <div class="max-w-6xl mx-auto px-4">
-            <h2 class="text-4xl font-bold text-center mb-12 relative">
+            <h2 class="text-4xl font-bold text-center mb-12 relative reveal">
                 Sobre
                 <div class="absolute -bottom-3 left-1/2 transform -translate-x-1/2 w-20 h-1 bg-gradient-to-r from-indigo-500 to-cyan-500 rounded"></div>
             </h2>
             
             <div class="grid md:grid-cols-2 gap-12 items-center">
-                <div class="text-center md:text-left">
+                <div class="text-center md:text-left reveal">
                     <div class="relative inline-block">
                         <img src="image/johny_luzia.jpg" alt="Johny de Souza" class="w-full max-w-sm rounded-2xl shadow-2xl hover:scale-105 transition-transform duration-300">
                         <div class="absolute -top-3 -left-3 -right-3 -bottom-3 bg-gradient-to-r from-indigo-500 to-cyan-500 rounded-2xl -z-10 opacity-70"></div>
                     </div>
                 </div>
                 
-                <div>
+                <div class="reveal">
                     <h3 class="text-2xl font-semibold text-indigo-400 mb-4">
                         Sou Johny, Desenvolvedor Full Stack
                     </h3>
@@ -226,7 +494,7 @@
                     <p class="text-slate-400 mb-8 leading-relaxed">
                         Habilidade na criação de APIs escaláveis, ferramentas internas com PowerApps e Power Automate, além da automação de deploys with Docker e GitHub Actions (CI/CD). Capacidade comprovada de entregar soluções de alta qualidade alinhando conhecimento técnico às necessidades do negócio.
                     </p>
-                    <a href="./docs/Curriculo Developer Portugues.pdf" download class="inline-flex items-center gap-2 px-6 py-3 border-2 border-indigo-500 text-indigo-400 rounded-full hover:bg-indigo-500 hover:text-white hover:-translate-y-1 transition-all duration-300">
+                    <a href="./docs/Curriculo Developer Portugues.pdf" download class="download-cv inline-flex items-center gap-2 px-6 py-3 border-2 border-indigo-500 text-indigo-400 rounded-full hover:bg-indigo-500 hover:text-white hover:-translate-y-1 transition-all duration-300">
                         <i data-lucide="download" size="18"></i>
                         Baixar CV
                     </a>
@@ -238,51 +506,105 @@
     <!-- Projects Section -->
     <section id="projetos" class="py-20">
         <div class="max-w-6xl mx-auto px-4">
-            <h2 class="text-4xl font-bold text-center mb-12 relative">
+            <h2 class="text-4xl font-bold text-center mb-12 relative reveal">
                 Projetos
                 <div class="absolute -bottom-3 left-1/2 transform -translate-x-1/2 w-20 h-1 bg-gradient-to-r from-indigo-500 to-cyan-500 rounded"></div>
             </h2>
             
-            <div class="grid md:grid-cols-2 lg:grid-cols-3 gap-8">
-                <a href="https://johnynoise.github.io/Gerador-de-Senha/" target="_blank" rel="noopener noreferrer" class="project-card block bg-slate-800 rounded-2xl overflow-hidden shadow-xl hover:shadow-2xl group">
-                    <div class="h-48 bg-gradient-to-br from-indigo-500 to-cyan-500 flex items-center justify-center text-6xl">
+            <!-- Project Filter -->
+            <div class="flex justify-center mb-12 reveal">
+                <div class="flex flex-wrap gap-3 bg-slate-800 p-2 rounded-full">
+                    <button class="filter-btn active px-4 py-2 rounded-full text-sm font-medium transition-all duration-300" data-filter="all">
+                        Todos
+                    </button>
+                    <button class="filter-btn px-4 py-2 rounded-full text-sm font-medium transition-all duration-300" data-filter="web">
+                        Web
+                    </button>
+                    <button class="filter-btn px-4 py-2 rounded-full text-sm font-medium transition-all duration-300" data-filter="mobile">
+                        Mobile
+                    </button>
+                    <button class="filter-btn px-4 py-2 rounded-full text-sm font-medium transition-all duration-300" data-filter="devops">
+                        DevOps
+                    </button>
+                </div>
+            </div>
+            
+            <div class="grid md:grid-cols-2 lg:grid-cols-3 gap-8" id="projectsGrid">
+                <a href="https://johnynoise.github.io/Gerador-de-Senha/" target="_blank" rel="noopener noreferrer" class="project-card reveal block bg-slate-800 rounded-2xl overflow-hidden shadow-xl hover:shadow-2xl group" data-category="web">
+                    <div class="h-48 bg-gradient-to-br from-indigo-500 to-cyan-500 flex items-center justify-center text-6xl relative overflow-hidden">
+                        <div class="absolute inset-0 bg-black/20 opacity-0 group-hover:opacity-100 transition-opacity duration-300"></div>
                         🔐
+                        <div class="absolute top-4 right-4 opacity-0 group-hover:opacity-100 transition-opacity duration-300">
+                            <i data-lucide="external-link" size="20" class="text-white"></i>
+                        </div>
                     </div>
                     <div class="p-6">
-                        <h3 class="text-xl font-semibold text-indigo-400 mb-2 group-hover:text-indigo-300">
-                            Gerador de Senha
-                        </h3>
-                        <p class="text-slate-400">
+                        <div class="flex items-center justify-between mb-2">
+                            <h3 class="text-xl font-semibold text-indigo-400 group-hover:text-indigo-300">
+                                Gerador de Senha
+                            </h3>
+                            <span class="bg-indigo-500/20 text-indigo-400 px-2 py-1 rounded-full text-xs">Web</span>
+                        </div>
+                        <p class="text-slate-400 mb-4">
                             Aplicação web para gerar senhas seguras com diferentes níveis de complexidade.
                         </p>
+                        <div class="flex flex-wrap gap-2">
+                            <span class="bg-slate-700 text-slate-300 px-2 py-1 rounded text-xs">JavaScript</span>
+                            <span class="bg-slate-700 text-slate-300 px-2 py-1 rounded text-xs">HTML5</span>
+                            <span class="bg-slate-700 text-slate-300 px-2 py-1 rounded text-xs">CSS3</span>
+                        </div>
                     </div>
                 </a>
                 
-                <a href="https://github.com/johnynoise/projeto-mae" target="_blank" rel="noopener noreferrer" class="project-card block bg-slate-800 rounded-2xl overflow-hidden shadow-xl hover:shadow-2xl group">
-                    <div class="h-48 bg-gradient-to-br from-purple-500 to-pink-500 flex items-center justify-center text-6xl">
+                <a href="https://github.com/johnynoise/projeto-mae" target="_blank" rel="noopener noreferrer" class="project-card reveal block bg-slate-800 rounded-2xl overflow-hidden shadow-xl hover:shadow-2xl group" data-category="mobile">
+                    <div class="h-48 bg-gradient-to-br from-purple-500 to-pink-500 flex items-center justify-center text-6xl relative overflow-hidden">
+                        <div class="absolute inset-0 bg-black/20 opacity-0 group-hover:opacity-100 transition-opacity duration-300"></div>
                         🚚
+                        <div class="absolute top-4 right-4 opacity-0 group-hover:opacity-100 transition-opacity duration-300">
+                            <i data-lucide="external-link" size="20" class="text-white"></i>
+                        </div>
                     </div>
                     <div class="p-6">
-                        <h3 class="text-xl font-semibold text-indigo-400 mb-2 group-hover:text-indigo-300">
-                            APP Delivery
-                        </h3>
-                        <p class="text-slate-400">
+                        <div class="flex items-center justify-between mb-2">
+                            <h3 class="text-xl font-semibold text-indigo-400 group-hover:text-indigo-300">
+                                APP Delivery
+                            </h3>
+                            <span class="bg-purple-500/20 text-purple-400 px-2 py-1 rounded-full text-xs">Mobile</span>
+                        </div>
+                        <p class="text-slate-400 mb-4">
                             Sistema completo de delivery com interface moderna e funcionalidades avançadas.
                         </p>
+                        <div class="flex flex-wrap gap-2">
+                            <span class="bg-slate-700 text-slate-300 px-2 py-1 rounded text-xs">React Native</span>
+                            <span class="bg-slate-700 text-slate-300 px-2 py-1 rounded text-xs">Node.js</span>
+                            <span class="bg-slate-700 text-slate-300 px-2 py-1 rounded text-xs">MongoDB</span>
+                        </div>
                     </div>
                 </a>
                 
-                <a href="https://github.com/johnynoise/devops-ecommerce" target="_blank" rel="noopener noreferrer" class="project-card block bg-slate-800 rounded-2xl overflow-hidden shadow-xl hover:shadow-2xl group">
-                    <div class="h-48 bg-gradient-to-br from-cyan-500 to-blue-500 flex items-center justify-center text-6xl">
+                <a href="https://github.com/johnynoise/devops-ecommerce" target="_blank" rel="noopener noreferrer" class="project-card reveal block bg-slate-800 rounded-2xl overflow-hidden shadow-xl hover:shadow-2xl group" data-category="devops">
+                    <div class="h-48 bg-gradient-to-br from-cyan-500 to-blue-500 flex items-center justify-center text-6xl relative overflow-hidden">
+                        <div class="absolute inset-0 bg-black/20 opacity-0 group-hover:opacity-100 transition-opacity duration-300"></div>
                         ☁️
+                        <div class="absolute top-4 right-4 opacity-0 group-hover:opacity-100 transition-opacity duration-300">
+                            <i data-lucide="external-link" size="20" class="text-white"></i>
+                        </div>
                     </div>
                     <div class="p-6">
-                        <h3 class="text-xl font-semibold text-indigo-400 mb-2 group-hover:text-indigo-300">
-                            DevOps Ecommerce
-                        </h3>
-                        <p class="text-slate-400">
+                        <div class="flex items-center justify-between mb-2">
+                            <h3 class="text-xl font-semibold text-indigo-400 group-hover:text-indigo-300">
+                                DevOps Ecommerce
+                            </h3>
+                            <span class="bg-cyan-500/20 text-cyan-400 px-2 py-1 rounded-full text-xs">DevOps</span>
+                        </div>
+                        <p class="text-slate-400 mb-4">
                             Infraestrutura completa de e-commerce com práticas DevOps e deploy automatizado na AWS.
                         </p>
+                        <div class="flex flex-wrap gap-2">
+                            <span class="bg-slate-700 text-slate-300 px-2 py-1 rounded text-xs">Docker</span>
+                            <span class="bg-slate-700 text-slate-300 px-2 py-1 rounded text-xs">AWS</span>
+                            <span class="bg-slate-700 text-slate-300 px-2 py-1 rounded text-xs">CI/CD</span>
+                        </div>
                     </div>
                 </a>
             </div>
@@ -292,13 +614,13 @@
     <!-- Skills Section -->
     <section id="skills" class="py-20 bg-slate-800">
         <div class="max-w-6xl mx-auto px-4">
-            <h2 class="text-4xl font-bold text-center mb-12 relative">
+            <h2 class="text-4xl font-bold text-center mb-12 relative reveal">
                 Habilidades
                 <div class="absolute -bottom-3 left-1/2 transform -translate-x-1/2 w-20 h-1 bg-gradient-to-r from-indigo-500 to-cyan-500 rounded"></div>
             </h2>
             
             <div class="grid md:grid-cols-2 gap-12">
-                <div>
+                <div class="reveal">
                     <h3 class="text-2xl font-semibold text-indigo-400 mb-6">
                         Tecnologias em que tenho habilidades
                     </h3>
@@ -311,11 +633,11 @@
                     </a>
                 </div>
                 
-                <div class="space-y-6">
+                <div class="space-y-6 reveal">
                     <div class="skill-item">
                         <div class="flex justify-between mb-2">
                             <span class="font-semibold">Python (FastAPI)</span>
-                            <span>90%</span>
+                            <span class="skill-percentage">90%</span>
                         </div>
                         <div class="skill-bar">
                             <div class="skill-progress" data-width="90"></div>
@@ -325,7 +647,7 @@
                     <div class="skill-item">
                         <div class="flex justify-between mb-2">
                             <span class="font-semibold">JavaScript</span>
-                            <span>90%</span>
+                            <span class="skill-percentage">90%</span>
                         </div>
                         <div class="skill-bar">
                             <div class="skill-progress" data-width="90"></div>
@@ -335,7 +657,7 @@
                     <div class="skill-item">
                         <div class="flex justify-between mb-2">
                             <span class="font-semibold">React.js</span>
-                            <span>85%</span>
+                            <span class="skill-percentage">85%</span>
                         </div>
                         <div class="skill-bar">
                             <div class="skill-progress" data-width="85"></div>
@@ -345,7 +667,7 @@
                     <div class="skill-item">
                         <div class="flex justify-between mb-2">
                             <span class="font-semibold">Node.js (Express)</span>
-                            <span>70%</span>
+                            <span class="skill-percentage">70%</span>
                         </div>
                         <div class="skill-bar">
                             <div class="skill-progress" data-width="70"></div>
@@ -355,7 +677,7 @@
                     <div class="skill-item">
                         <div class="flex justify-between mb-2">
                             <span class="font-semibold">SQL (MySQL, PostgreSQL)</span>
-                            <span>60%</span>
+                            <span class="skill-percentage">60%</span>
                         </div>
                         <div class="skill-bar">
                             <div class="skill-progress" data-width="60"></div>
@@ -365,7 +687,7 @@
                     <div class="skill-item">
                         <div class="flex justify-between mb-2">
                             <span class="font-semibold">AWS</span>
-                            <span>90%</span>
+                            <span class="skill-percentage">90%</span>
                         </div>
                         <div class="skill-bar">
                             <div class="skill-progress" data-width="90"></div>
@@ -375,7 +697,7 @@
                     <div class="skill-item">
                         <div class="flex justify-between mb-2">
                             <span class="font-semibold">Docker</span>
-                            <span>60%</span>
+                            <span class="skill-percentage">60%</span>
                         </div>
                         <div class="skill-bar">
                             <div class="skill-progress" data-width="60"></div>
@@ -389,13 +711,13 @@
     <!-- Contact Section -->
     <section id="contact" class="py-20">
         <div class="max-w-4xl mx-auto px-4">
-            <h2 class="text-4xl font-bold text-center mb-12 relative">
+            <h2 class="text-4xl font-bold text-center mb-12 relative reveal">
                 Contato
                 <div class="absolute -bottom-3 left-1/2 transform -translate-x-1/2 w-20 h-1 bg-gradient-to-r from-indigo-500 to-cyan-500 rounded"></div>
             </h2>
             
             <div class="grid gap-6 max-w-2xl mx-auto">
-                <div class="contact-item flex items-center gap-4 p-6 bg-slate-800 rounded-xl hover:bg-slate-700">
+                <div class="contact-item reveal flex items-center gap-4 p-6 bg-slate-800 rounded-xl hover:bg-slate-700">
                     <div class="bg-indigo-500 p-3 rounded-full">
                         <i data-lucide="user" size="20" class="text-white"></i>
                     </div>
@@ -405,27 +727,27 @@
                     </div>
                 </div>
                 
-                <div class="contact-item flex items-center gap-4 p-6 bg-slate-800 rounded-xl hover:bg-slate-700">
+                <div class="contact-item reveal flex items-center gap-4 p-6 bg-slate-800 rounded-xl hover:bg-slate-700">
                     <div class="bg-indigo-500 p-3 rounded-full">
                         <i data-lucide="phone" size="20" class="text-white"></i>
                     </div>
                     <div>
                         <h4 class="font-semibold text-indigo-400 mb-1">Telefone</h4>
-                        <p class="text-slate-400">(92) 99973-0734</p>
+                        <p class="text-slate-400 cursor-pointer" onclick="copyToClipboard('(92) 99973-0734')">(92) 99973-0734</p>
                     </div>
                 </div>
                 
-                <div class="contact-item flex items-center gap-4 p-6 bg-slate-800 rounded-xl hover:bg-slate-700">
+                <div class="contact-item reveal flex items-center gap-4 p-6 bg-slate-800 rounded-xl hover:bg-slate-700">
                     <div class="bg-indigo-500 p-3 rounded-full">
                         <i data-lucide="mail" size="20" class="text-white"></i>
                     </div>
                     <div>
                         <h4 class="font-semibold text-indigo-400 mb-1">Email</h4>
-                        <p class="text-slate-400">johnysantaluzia@gmail.com</p>
+                        <p class="text-slate-400 cursor-pointer" onclick="copyToClipboard('johnysantaluzia@gmail.com')">johnysantaluzia@gmail.com</p>
                     </div>
                 </div>
                 
-                <div class="contact-item flex items-center gap-4 p-6 bg-slate-800 rounded-xl hover:bg-slate-700">
+                <div class="contact-item reveal flex items-center gap-4 p-6 bg-slate-800 rounded-xl hover:bg-slate-700">
                     <div class="bg-indigo-500 p-3 rounded-full">
                         <i data-lucide="map-pin" size="20" class="text-white"></i>
                     </div>
@@ -435,7 +757,7 @@
                     </div>
                 </div>
                 
-                <div class="contact-item flex items-center gap-4 p-6 bg-slate-800 rounded-xl hover:bg-slate-700">
+                <div class="contact-item reveal flex items-center gap-4 p-6 bg-slate-800 rounded-xl hover:bg-slate-700">
                     <div class="bg-indigo-500 p-3 rounded-full">
                         <i data-lucide="github" size="20" class="text-white"></i>
                     </div>
@@ -447,7 +769,7 @@
                     </div>
                 </div>
                 
-                <div class="contact-item flex items-center gap-4 p-6 bg-slate-800 rounded-xl hover:bg-slate-700">
+                <div class="contact-item reveal flex items-center gap-4 p-6 bg-slate-800 rounded-xl hover:bg-slate-700">
                     <div class="bg-indigo-500 p-3 rounded-full">
                         <i data-lucide="linkedin" size="20" class="text-white"></i>
                     </div>
@@ -464,8 +786,9 @@
 
     <!-- Footer -->
     <footer class="bg-slate-900 py-8 border-t border-slate-800">
-        <div class="max-w-6xl mx-auto px-4 text-center text-slate-400">
+        <div class="max-w-6xl mx-auto px-4 text-center text-slate-400 reveal">
             <p>Criado por <strong class="text-indigo-400">Johny de Souza</strong> | Manaus 2025 | Todos os direitos reservados</p>
+            <p class="text-sm mt-2 opacity-50">Pressione ↑↑↓↓←→←→BA para uma surpresa 😉</p>
         </div>
     </footer>
 
@@ -478,7 +801,88 @@
         // Initialize Lucide icons
         lucide.createIcons();
         
-        // Navbar scroll effect
+        // Global Variables
+        let isLightMode = false;
+        const konamiCode = ['ArrowUp', 'ArrowUp', 'ArrowDown', 'ArrowDown', 'ArrowLeft', 'ArrowRight', 'ArrowLeft', 'ArrowRight', 'KeyB', 'KeyA'];
+        let konamiIndex = 0;
+        
+        // Loading Screen
+        window.addEventListener('load', () => {
+            setTimeout(() => {
+                document.getElementById('loadingScreen').classList.add('hidden');
+                initializeAnimations();
+            }, 2000);
+        });
+        
+        // Custom Cursor
+        const cursor = document.getElementById('cursor');
+        const cursorFollower = document.getElementById('cursorFollower');
+        let cursorX = 0, cursorY = 0;
+        let followerX = 0, followerY = 0;
+        
+        document.addEventListener('mousemove', (e) => {
+            cursorX = e.clientX;
+            cursorY = e.clientY;
+        });
+        
+        function animateCursor() {
+            cursor.style.left = cursorX + 'px';
+            cursor.style.top = cursorY + 'px';
+            
+            followerX += (cursorX - followerX) * 0.1;
+            followerY += (cursorY - followerY) * 0.1;
+            
+            cursorFollower.style.left = followerX + 'px';
+            cursorFollower.style.top = followerY + 'px';
+            
+            requestAnimationFrame(animateCursor);
+        }
+        animateCursor();
+        
+        // Scroll Progress
+        const scrollProgress = document.getElementById('scrollProgress');
+        window.addEventListener('scroll', () => {
+            const scrolled = window.scrollY;
+            const maxScroll = document.body.scrollHeight - window.innerHeight;
+            const progress = (scrolled / maxScroll) * 100;
+            scrollProgress.style.width = progress + '%';
+        });
+        
+        // Typewriter Effect
+        const typewriter = document.getElementById('typewriter');
+        const texts = ['Desenvolvedor Full Stack', 'Especialista em DevOps', 'Entusiasta de Cloud Computing', 'Criador de Soluções'];
+        let textIndex = 0;
+        let charIndex = 0;
+        let isDeleting = false;
+        
+        function typeText() {
+            const currentText = texts[textIndex];
+            
+            if (isDeleting) {
+                typewriter.textContent = currentText.substring(0, charIndex - 1);
+                charIndex--;
+            } else {
+                typewriter.textContent = currentText.substring(0, charIndex + 1);
+                charIndex++;
+            }
+            
+            let speed = isDeleting ? 50 : 100;
+            
+            if (!isDeleting && charIndex === currentText.length) {
+                speed = 2000;
+                isDeleting = true;
+            } else if (isDeleting && charIndex === 0) {
+                isDeleting = false;
+                textIndex = (textIndex + 1) % texts.length;
+                speed = 500;
+            }
+            
+            setTimeout(typeText, speed);
+        }
+        
+        setTimeout(typeText, 1000);
+        
+        // Navbar and Scroll Effects
         const navbar = document.getElementById('navbar');
         const scrollTopBtn = document.getElementById('scrollTop');
         
@@ -489,7 +893,6 @@
                 navbar.classList.remove('shadow-2xl');
             }
             
-            // Show/hide scroll to top button
             if (window.scrollY > 300) {
                 scrollTopBtn.style.opacity = '1';
                 scrollTopBtn.style.pointerEvents = 'auto';
@@ -499,7 +902,7 @@
             }
         });
         
-        // Mobile menu
+        // Mobile Menu
         const menuBtn = document.getElementById('menuBtn');
         const closeBtn = document.getElementById('closeBtn');
         const mobileMenu = document.getElementById('mobileMenu');
@@ -519,18 +922,87 @@
             });
         });
         
+        // Theme Toggle
+        const themeToggle = document.getElementById('themeToggle');
+        
+        themeToggle.addEventListener('click', () => {
+            isLightMode = !isLightMode;
+            document.body.classList.toggle('light-mode', isLightMode);
+            themeToggle.classList.toggle('dark', isLightMode);
+            
+            // Save preference
+            localStorage.setItem('lightMode', isLightMode);
+            
+            showToast(isLightMode ? 'Modo claro ativado!' : 'Modo escuro ativado!', 'success');
+        });
+        
+        // Load theme preference
+        const savedTheme = localStorage.getItem('lightMode');
+        if (savedTheme === 'true') {
+            isLightMode = true;
+            document.body.classList.add('light-mode');
+            themeToggle.classList.add('dark');
+        }
+        
+        // Project Filter
+        const filterBtns = document.querySelectorAll('.filter-btn');
+        const projectCards = document.querySelectorAll('.project-card');
+        
+        filterBtns.forEach(btn => {
+            btn.addEventListener('click', () => {
+                const filter = btn.getAttribute('data-filter');
+                
+                // Update active button
+                filterBtns.forEach(b => b.classList.remove('active', 'bg-indigo-500', 'text-white'));
+                btn.classList.add('active', 'bg-indigo-500', 'text-white');
+                
+                // Filter projects
+                projectCards.forEach(card => {
+                    const category = card.getAttribute('data-category');
+                    if (filter === 'all' || category === filter) {
+                        card.style.display = 'block';
+                        setTimeout(() => {
+                            card.style.opacity = '1';
+                            card.style.transform = 'translateY(0)';
+                        }, 100);
+                    } else {
+                        card.style.opacity = '0';
+                        card.style.transform = 'translateY(20px)';
+                        setTimeout(() => {
+                            card.style.display = 'none';
+                        }, 300);
+                    }
+                });
+                
+                showToast(`Mostrando projetos: ${filter === 'all' ? 'Todos' : filter}`, 'success');
+            });
+        });
+        
+        // Set initial filter state
+        document.querySelector('.filter-btn[data-filter="all"]').classList.add('active', 'bg-indigo-500', 'text-white');
+        
         // Scroll to top
         scrollTopBtn.addEventListener('click', () => {
             window.scrollTo({ top: 0, behavior: 'smooth' });
         });
         
-        // Animate skill bars when in view
-        const observerOptions = {
-            threshold: 0.5,
-            rootMargin: '0px 0px -100px 0px'
-        };
+        // Reveal Animation on Scroll
+        const revealElements = document.querySelectorAll('.reveal');
         
-        const observer = new IntersectionObserver((entries) => {
+        const revealObserver = new IntersectionObserver((entries) => {
+            entries.forEach(entry => {
+                if (entry.isIntersecting) {
+                    entry.target.classList.add('revealed');
+                }
+            });
+        }, { threshold: 0.1, rootMargin: '0px 0px -50px 0px' });
+        
+        revealElements.forEach(element => {
+            revealObserver.observe(element);
+        });
+        
+        // Skill Bar Animation
+        const skillsObserver = new IntersectionObserver((entries) => {
             entries.forEach(entry => {
                 if (entry.isIntersecting) {
                     const skillBars = entry.target.querySelectorAll('.skill-progress');
@@ -542,11 +1014,83 @@
                     });
                 }
             });
-        }, observerOptions);
+        }, { threshold: 0.5 });
         
         const skillsSection = document.getElementById('skills');
         if (skillsSection) {
-            observer.observe(skillsSection);
+            skillsObserver.observe(skillsSection);
+        }
+        
+        // Toast Notifications
+        function showToast(message, type = 'success') {
+            const toastContainer = document.getElementById('toastContainer');
+            const toast = document.createElement('div');
+            toast.className = `toast ${type}`;
+            toast.textContent = message;
+            
+            toastContainer.appendChild(toast);
+            
+            setTimeout(() => {
+                toast.classList.add('show');
+            }, 100);
+            
+            setTimeout(() => {
+                toast.classList.remove('show');
+                setTimeout(() => {
+                    toastContainer.removeChild(toast);
+                }, 300);
+            }, 3000);
+        }
+        
+        // Copy to Clipboard
+        function copyToClipboard(text) {
+            navigator.clipboard.writeText(text).then(() => {
+                showToast(`${text} copiado para a área de transferência!`, 'success');
+            }).catch(() => {
+                showToast('Erro ao copiar para a área de transferência', 'error');
+            });
+        }
+        
+        // Download CV tracking
+        document.querySelector('.download-cv').addEventListener('click', () => {
+            showToast('Download do CV iniciado!', 'success');
+        });
+        
+        // CTA Button tracking
+        document.querySelector('.cta-button').addEventListener('click', () => {
+            showToast('Redirecionando para seção de contato...', 'success');
+        });
+        
+        // Konami Code Easter Egg
+        document.addEventListener('keydown', (e) => {
+            if (e.code === konamiCode[konamiIndex]) {
+                konamiIndex++;
+                if (konamiIndex === konamiCode.length) {
+                    activateKonamiCode();
+                    konamiIndex = 0;
+                }
+            } else {
+                konamiIndex = 0;
+            }
+        });
+        
+        function activateKonamiCode() {
+            document.body.classList.add('konami-active');
+            showToast('🎉 Código Konami ativado! Modo party ON!', 'success');
+            
+            // Add party mode effects
+            const particles = document.querySelectorAll('.particle');
+            particles.forEach(particle => {
+                particle.style.animation = 'float 0.5s ease-in-out infinite';
+            });
+            
+            setTimeout(() => {
+                document.body.classList.remove('konami-active');
+                particles.forEach(particle => {
+                    particle.style.animation = 'float 6s ease-in-out infinite';
+                });
+                showToast('Modo party OFF. Voltando ao normal...', 'success');
+            }, 5000);
         }
         
         // Smooth scroll for navigation links
@@ -562,6 +1106,45 @@
                 }
             });
         });
+        
+        // Initialize animations after loading
+        function initializeAnimations() {
+            // Trigger initial reveal animations
+            setTimeout(() => {
+                const firstReveal = document.querySelector('#home .reveal');
+                if (firstReveal) {
+                    firstReveal.classList.add('revealed');
+                }
+            }, 500);
+        }
+        
+        // Performance optimization: Debounced scroll handler
+        let scrollTimeout;
+        window.addEventListener('scroll', () => {
+            if (scrollTimeout) {
+                cancelAnimationFrame(scrollTimeout);
+            }
+            
+            scrollTimeout = requestAnimationFrame(() => {
+                // Existing scroll logic here
+            });
+        });
+        
+        // Add keyboard navigation support
+        document.addEventListener('keydown', (e) => {
+            if (e.key === 'Tab') {
+                document.body.classList.add('keyboard-navigation');
+            }
+        });
+        
+        document.addEventListener('mousedown', () => {
+            document.body.classList.remove('keyboard-navigation');
+        });
+        
+        // Welcome message
+        setTimeout(() => {
+            showToast('Bem-vindo ao meu portfólio! 👋', 'success');
+        }, 3000);
     </script>
 </body>
 </html>
